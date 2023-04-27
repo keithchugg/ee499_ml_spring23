@@ -58,11 +58,11 @@ class FullDataset(torch.utils.data.Dataset):
     
     def __getitem__(self, idx):
         return self.data[idx], self.labels[idx]
-        
+    
 trainset = FullDataset(trainset)
 valset = FullDataset(valset)
 
-batchsize = 256
+batchsize = 128
 # Shuffle the data at the start of each epoch (only useful for training set)
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=batchsize, shuffle=True)
 train_eval_loader = torch.utils.data.DataLoader(trainset, batch_size=batchsize, shuffle=False)
